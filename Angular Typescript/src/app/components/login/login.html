@@ -1,0 +1,18 @@
+<div>
+    <form #login="ngForm" (ngSubmit)="onSubmit(login.value)">
+        <div class="form-group">
+            <label for="inputEmail">Direccion Email: </label>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Ingrese su email">
+        </div>
+        <div>
+            <label for="inputPass">Contrasena: </label>
+            <input type="password" class="form-control" id="inputPass" placeholder="Introduzca su Contraseña">
+        </div>
+
+        <button type="submit" class="btn btn-primary"> Enviar </button>
+        <div class="form-group">
+            <small id="registerHelp" class="form-text text-muted">Si no tienes una cuenta Registrate aqui: </small>
+            <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Registrarse</a>
+        </div>
+    </form>
+</div>
