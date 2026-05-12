@@ -3,8 +3,6 @@ package com.appmate.service;
 import com.appmate.model.Trazos;
 import com.appmate.repository.TrazosRepository;
 
-import javax.management.RuntimeErrorException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
