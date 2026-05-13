@@ -3,6 +3,7 @@ package com.appmate.controller;
 import com.appmate.security.JwtUtil;
 import com.appmate.model.Usuario;
 import com.appmate.service.UsuarioService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +41,15 @@ public class UsuarioController {
         }
 
     // Metodo Post para crear usuarios
+    @DeleteMapping("/borrar")
+    public ResponseEntity<?> BorrarUsuario(@RequestParam String email){
+        try{
+            Usuario borrarUsuario = usuarioService.eliminarUsuarioPorEmail(email);
+            return ResponseEntity.ok(borrarUsuario);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body((e.getMessage()));
+        }
+    }
     @PostMapping("/crear")
     public ResponseEntity<?> CrearUsuario(@RequestBody Usuario usuario) {
         try {
@@ -49,7 +59,6 @@ public class UsuarioController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
     @GetMapping
     public ResponseEntity<?> obtenerTodosLosUsuarios() {
         try {
@@ -59,5 +68,6 @@ public class UsuarioController {
             return ResponseEntity.internalServerError().body("Error al obtener usuarios: " + e.getMessage());
         }
     }
+
 
 }
